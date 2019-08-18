@@ -69,7 +69,6 @@
 
         import Absyn
 
-        import AbsynUtil
          #=  Some definitions are aliased from Absyn
          =#
 
