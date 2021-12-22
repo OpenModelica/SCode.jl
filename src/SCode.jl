@@ -765,13 +765,13 @@
           #= - Attributes =#
          @Uniontype Attributes begin
               @Record ATTR begin
-
-                       arrayDims #= the array dimensions of the component =#::Absyn.ArrayDim
-                       connectorType #= The connector type: flow, stream or nothing. =#::ConnectorType
-                       parallelism #= parallelism prefix: parglobal, parlocal, parprivate =#::Parallelism
-                       variability #=  the variability: parameter, discrete, variable, constant =#::Variability
-                       direction #= the direction: input, output or bidirectional =#::Absyn.Direction
-                       isField #= non-fiel / field =#::Absyn.IsField
+                arrayDims #= the array dimensions of the component =#::Absyn.ArrayDim
+                connectorType #= The connector type: flow, stream or nothing. =#::ConnectorType
+                parallelism #= parallelism prefix: parglobal, parlocal, parprivate =#::Parallelism
+                variability #=  the variability: parameter, discrete, variable, constant =#::Variability
+                direction #= the direction: input, output or bidirectional =#::Absyn.Direction
+                isField #= non-fiel / field =#::Absyn.IsField
+                mode::Bool
               end
          end
 
