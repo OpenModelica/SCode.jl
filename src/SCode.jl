@@ -72,11 +72,11 @@
          #=  Some definitions are aliased from Absyn
          =#
 
-        Ident = Absyn.Ident
+        const Ident = Absyn.Ident
 
-        Path = Absyn.Path
+        const Path = Absyn.Path
 
-        Subscript = Absyn.Subscript
+        const Subscript = Absyn.Subscript
 
          @Uniontype Restriction begin
               @Record R_CLASS begin
@@ -251,7 +251,7 @@
               end
          end
 
-        Program = List  #= - Programs
+        const Program = List  #= - Programs
         As in the AST, a program is simply a list of class definitions. =#
 
           #= Enum, which is a name in an enumeration and an optional Comment. =#
@@ -330,9 +330,8 @@
               end
          end
 
-         noComment = COMMENT(NONE(), NONE())::Comment
-         #=  stefan
-         =#
+         const noComment = COMMENT(NONE(), NONE())::Comment
+         #=  stefan =#
 
          @Uniontype Annotation begin
               @Record ANNOTATION begin
@@ -765,13 +764,13 @@
           #= - Attributes =#
          @Uniontype Attributes begin
               @Record ATTR begin
-
-                       arrayDims #= the array dimensions of the component =#::Absyn.ArrayDim
-                       connectorType #= The connector type: flow, stream or nothing. =#::ConnectorType
-                       parallelism #= parallelism prefix: parglobal, parlocal, parprivate =#::Parallelism
-                       variability #=  the variability: parameter, discrete, variable, constant =#::Variability
-                       direction #= the direction: input, output or bidirectional =#::Absyn.Direction
-                       isField #= non-fiel / field =#::Absyn.IsField
+                arrayDims #= the array dimensions of the component =#::Absyn.ArrayDim
+                connectorType #= The connector type: flow, stream or nothing. =#::ConnectorType
+                parallelism #= parallelism prefix: parglobal, parlocal, parprivate =#::Parallelism
+                variability #=  the variability: parameter, discrete, variable, constant =#::Variability
+                direction #= the direction: input, output or bidirectional =#::Absyn.Direction
+                isField #= non-fiel / field =#::Absyn.IsField
+                mode::Bool
               end
          end
 
@@ -824,13 +823,13 @@
               end
          end
 
-         defaultPrefixes = PREFIXES(PUBLIC(), NOT_REDECLARE(), NOT_FINAL(), Absyn.NOT_INNER_OUTER(), NOT_REPLACEABLE())::Prefixes
+         const defaultPrefixes = PREFIXES(PUBLIC(), NOT_REDECLARE(), NOT_FINAL(), Absyn.NOT_INNER_OUTER(), NOT_REPLACEABLE())::Prefixes
 
-         defaultVarAttr = ATTR(list(), POTENTIAL(), NON_PARALLEL(), VAR(), Absyn.BIDIR(), Absyn.NONFIELD())::Attributes
+         const defaultVarAttr = ATTR(list(), POTENTIAL(), NON_PARALLEL(), VAR(), Absyn.BIDIR(), Absyn.NONFIELD(), false)::Attributes
 
-         defaultParamAttr = ATTR(list(), POTENTIAL(), NON_PARALLEL(), PARAM(), Absyn.BIDIR(), Absyn.NONFIELD())::Attributes
+         const defaultParamAttr = ATTR(list(), POTENTIAL(), NON_PARALLEL(), PARAM(), Absyn.BIDIR(), Absyn.NONFIELD(), false)::Attributes
 
-         defaultConstAttr = ATTR(list(), POTENTIAL(), NON_PARALLEL(), CONST(), Absyn.BIDIR(), Absyn.NONFIELD())::Attributes
+         const defaultConstAttr = ATTR(list(), POTENTIAL(), NON_PARALLEL(), CONST(), Absyn.BIDIR(), Absyn.NONFIELD(), false)::Attributes
 
     #= So that we can use wildcard imports and named imports when they do occur. Not good Julia practice =#
     @exportAll()
