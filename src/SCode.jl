@@ -726,6 +726,10 @@ const defaultParamAttr = ATTR(list(), POTENTIAL(), NON_PARALLEL(), PARAM(), Absy
 
 const defaultConstAttr = ATTR(list(), POTENTIAL(), NON_PARALLEL(), CONST(), Absyn.BIDIR(), Absyn.NONFIELD(), false)::Attributes
 
+const defaultInputAttr = ATTR(list(), POTENTIAL(), NON_PARALLEL(), VAR(), Absyn.INPUT(), Absyn.NONFIELD(), false)::Attributes
+
+const defaultOutputAttr = ATTR(list(), POTENTIAL(), NON_PARALLEL(), VAR(), Absyn.OUTPUT(), Absyn.NONFIELD(), false)::Attributes
+
 #= So that we can use wildcard imports and named imports when they do occur. Not good Julia practice =#
 @exportAll()
 end
