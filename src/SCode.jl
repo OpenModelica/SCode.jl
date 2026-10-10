@@ -196,6 +196,18 @@ end
     element #= The new element declaration. =#::Element
   end
 
+  #= Selective model extension (Modelica 3.6): `extends A(break x)` removes component x. =#
+  @Record BREAK_COMPONENT begin
+    info::SourceInfo
+  end
+
+  #= `extends A(break connect(a, b))` removes that connect-equation of the base class. =#
+  @Record BREAK_CONNECT begin
+    lhs::Absyn.ComponentRef
+    rhs::Absyn.ComponentRef
+    info::SourceInfo
+  end
+
   @Record NOMOD begin
   end
 end
